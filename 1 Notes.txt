@@ -1,0 +1,5 @@
+To start the web chat
+rasa run --credentials credentials.yml --endpoints endpoints.yml --cors "*" --debug
+
+To start the voice based
+rasa run --credentials credentials.yml --endpoints endpoints.yml --cors "*" --debug --enable-api

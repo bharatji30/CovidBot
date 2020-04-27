@@ -1,0 +1,55 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet
+- goodbye
+- pull_from
+- pull_from_filled
+- context
+- chitchat:
+    use_entities: []
+entities:
+- location
+- count_type
+slots:
+  count_type:
+    type: text
+  location:
+    type: text
+responses:
+  utter_greet:
+  - text: Hey! How are you?
+  - text: hi there, how can i help
+  utter_aim:
+  - text: I can provide stats about COVID-19 cases.
+  utter_chitchat:
+  - text: chitchat
+  utter_ask_count_type:
+  - text: (confirmed) or (active) or (deaths)
+  utter_ask_location:
+  - text: For which state do you want to know the {count_type}
+  utter_wrong_location:
+  - text: this location is not in the database, please try again
+  utter_wrong_count_type:
+  - text: Only valid inputs are- "confirmed" or "active" or "deaths"
+  utter_goodbye:
+  - text: Bye
+  - text: See Ya
+  - text: goodbye
+  - text: see you around
+  - text: see you later
+actions:
+- action_slot_refresh
+- action_validate_ct
+- action_results
+- utter_aim
+- utter_ask_count_type
+- utter_ask_location
+- utter_wrong_location
+- utter_wrong_count_type
+- utter_greet
+- utter_goodbye
+- utter_chitchat
+forms:
+- Covid_Form
